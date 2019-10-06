@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+</head>
+<body>
+        <h1>Get Started</h1> 
+        <div class="form-container">
+            <form method="POST" id="form">
+                <div class="form-group">
+                    <label for="Age">Age</label>
+                    <input type="number" name="age" >
+                </div>        
+    
+                <div class="form-group"> 
+                    <label for="weight">Weight in Kg</label>
+                    <input type="number" name="weight">
+                </div>
+    
+                <div class="form-group">
+                    <label for="height">Height in cm</label>
+                    <input type="number" name="height">
+                </div>
+
+                <div class="form-group">
+                        <label for="ap_hi">Systolic Blood Pressure</label>
+                        <input type="number" name="ap_hi">
+                </div>
+
+                <div class="form-group">
+                        <label for="ap_low">Diastolic Blood Pressure</label>
+                        <input type="number" name="ap_low">
+                </div>
+
+
+                <div class="form-group">
+                        <label for="chol">Cholestrol</label>
+                        <input type="radio" name="chol" value=3 > High
+                        <input type="radio" name="chol" value=2> Medium
+                        <input type="radio" name="chol" value=1> Normal
+                </div>
+
+                <div class="form-group">
+                        <label for="gluc">Glucose</label>
+                        <input type="radio" name="gluc" value=3> High
+                        <input type="radio" name="gluc" value=2> Medium
+                        <input type="radio" name="gluc" value=1> Normal
+                </div>
+
+                <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <input type="radio" name="gender" value=2> Male
+                        <input type="radio" name="gender" value=1> Female
+                </div>
+
+                <div class="form-group">
+                        <label for="active">Are you active?</label>
+                        <input type="radio" name="active" value=1> Yes
+                        <input type="radio" name="active" value=0> No
+                </div>
+
+                <div class="form-group">
+                        <label for="smoke">Do you smoke?</label>
+                        <input type="radio" name="smoke" value=1> Yes
+                        <input type="radio" name="smoke" value=0> No
+                </div>
+
+                <div class="form-group">
+                        <label for="alc">Do you drink heavily?</label>
+                        <input type="radio" name="alc" value=1> Yes
+                        <input type="radio" name="alc" value=0> No
+                </div>
+    
+                <div class="submit form-control">
+                        <input class="submit form-control" type="submit" name="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+           
+    </body>
+</html>
