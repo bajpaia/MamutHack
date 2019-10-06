@@ -77,3 +77,4 @@ def disp():
     nid = QUEUE[CLIENT].id
     CLIENT += 1
     return f'<h1>{nid}</h1>'
+
