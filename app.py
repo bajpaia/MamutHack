@@ -14,19 +14,19 @@ def home():
    return render_template('index.html')
 
 
-# @app.route('/<selection>')
-# def assesment(selection):
-#     if selection == 'sign_up':
-#         return redirect(url_for('sign_up'))
-#     else:
-#        return redirect(url_for('sign_in'))
+@app.route('/<selection>')
+def assesment(selection):
+    if selection == 'sign_up':
+        return redirect(url_for('sign_up'))
+    else:
+       return redirect(url_for('sign_in'))
 
 
 @app.route('/sign_up', methods = ['GET', 'POST'])
 def sign_up():
     if request.method =='GET':
         return render_template('sign_up.html')
-    print(DB.head())
+
     idx = len(DB) + 1
     age = request.form['age']
     gender = request.form['gender']
@@ -45,9 +45,15 @@ def sign_up():
     return "Thank you, wait for your ID: {0} to be shown on the screen, risk = {1}".format(idx, risk)
     
 
-@app.route('/sign_in')
-def sign_in(methods = ['GET', 'POST']):
+@app.route('/sign_in', methods = ['GET', 'POST'])
+def sign_in():
     if request.method == 'GET':
         return render_template('sign_in.html')
+    idx = request.form['ID']
+    data = DB.loc[DB['id'] == idx]
+    data = data.drop(["cardio", 'age', 'gender', 'id', 'active'],axis=1)
+    risk = MODEL.predict_proba(data)
+    return "Thank you, wait for your ID: {0} to be shown on the screen, risk = {1}".format(idx, risk)
+
     
     
