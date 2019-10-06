@@ -1,5 +1,6 @@
 from flask import *
 import pandas as pd
+import numpy as np
 import pickle
 
 app = Flask(__name__)
@@ -39,9 +40,9 @@ def sign_up():
     smoke = request.form['smoke']
     alc =  request.form['alc']
     active =  request.form['active']
-    row = [idx, age, gender, height, weight, ap_hi, ap_lo, chol, gluc, smoke, alc, active]
-    DB.loc[len(DB)] = row
-    risk = MODEL.predict_proba(DB.loc[idx])
+    # row = [idx, age, gender, height, weight, ap_hi, ap_lo, chol, gluc, smoke, alc, active, 0]
+    # DB.loc[len(DB)] = row
+    risk = MODEL.predict_proba(pd.DataFrame([{'height': height, 'weight':weight, 'ap_hi': ap_hi, 'ap_lo': ap_lo, 'cholestrol': chol, 'gluc':gluc, 'smoke': smoke, 'alco': alc}]))
     return "Thank you, wait for your ID: {0} to be shown on the screen, risk = {1}".format(idx, risk)
     
 
